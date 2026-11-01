@@ -41,7 +41,6 @@
   <script>
     window.onload = function() {
       const spotifyUri     = "spotify:track:1gihuPhrLraKYrJMAEONyc";
-      const amazonMusicUri = "";
       const youtubeFallback= "https://www.youtube.com/watch?v=dGghkjpNCQ8";
       let appOpened = false;
 
@@ -50,17 +49,11 @@
       if (spotifyUri) { window.location.href = spotifyUri; }
 
       setTimeout(function() {
-        if (appOpened || !amazonMusicUri) return;
-        document.getElementById("status").innerText = "Checking Amazon Music...";
-        window.location.href = amazonMusicUri;
-      }, 1500);
-
-      setTimeout(function() {
         if (!appOpened) {
           document.getElementById("status").innerText = "Opening YouTube...";
           window.location.href = youtubeFallback;
         }
-      }, 3000);
+      }, 1500);
     };
   </script>
 </body>
